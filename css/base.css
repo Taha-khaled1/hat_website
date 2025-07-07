@@ -1,0 +1,219 @@
+/* Base Styles - Global Reset and Typography */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    overflow-x: hidden;
+    background: #0a0a0a;
+    color: #ffffff;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Arabic Typography */
+.arabic-title {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.arabic-text {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+}
+
+/* RTL Adjustments */
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.ltr {
+    direction: ltr;
+    text-align: left;
+}
+
+/* Loading Animation */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-logo {
+    width: 100px;
+    height: 100px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* Mobile-First Typography */
+@media (max-width: 767px) {
+    .arabic-title {
+        font-size: 2.2rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+    
+    .arabic-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Improve touch targets */
+    button, 
+    .btn,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Better spacing */
+    section {
+        padding: 60px 0;
+    }
+    
+    /* Optimize text readability */
+    p {
+        margin-bottom: 20px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 15px;
+    }
+    
+    /* Mobile-specific improvements */
+    .loading-logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Tablet Typography */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .arabic-title {
+        font-size: 2.8rem;
+        line-height: 1.2;
+    }
+    
+    .arabic-text {
+        font-size: 1.2rem;
+        line-height: 1.7;
+    }
+    
+    body {
+        font-size: 17px;
+    }
+    
+    section {
+        padding: 80px 0;
+    }
+}
+
+/* Desktop Typography */
+@media (min-width: 1024px) {
+    .arabic-title {
+        font-size: 3.5rem;
+        line-height: 1.1;
+    }
+    
+    .arabic-text {
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+    
+    body {
+        font-size: 18px;
+    }
+    
+    section {
+        padding: 120px 0;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Ensure all interactive elements are touch-friendly */
+    button,
+    .btn,
+    a,
+    input,
+    textarea {
+        min-height: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    *:hover {
+        transition-duration: 0s;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    body {
+        background: #000;
+        color: #fff;
+    }
+    
+    .arabic-title,
+    .arabic-text {
+        color: #fff;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .loading-logo {
+        animation: none;
+    }
+} 
